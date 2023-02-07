@@ -1,0 +1,44 @@
+{
+  "name": "nodejs",
+  "version": "0.0.1",
+  "description": "Create a Node.js app for building production-ready RESTful APIs using Express, by running one command",
+  "bin": "bin/createNodejsApp.js",
+  "main": "src/index.js",
+  "repository": "https://github.com/Ajinkyadon/nodejs.git",
+  "author": "Ajinkya Dondalkar <ajinkyadondalkar@gmail.com>",
+  "license": "MIT",
+  "engines": {
+    "node": ">=10.0.0"
+  },
+  "scripts": {
+    "start": "node src/index.js",
+    "dev": "cross-env NODE_ENV=development nodemon src/index.js",
+    "test": "jest -i --colors --verbose --detectOpenHandles"
+  },
+  "keywords": [
+    "node",
+    "node.js",
+    "boilerplate",
+    "generator",
+    "express",
+    "rest",
+    "api",
+    "mongodb",
+    "mongoose",
+    "es6",
+    "es7",
+    "es8",
+    "es9",
+    "jest",
+    "travis",
+    "docker",
+    "passport",
+    "joi",
+    "eslint",
+    "prettier"
+  ],
+  "dependencies": {
+  },
+  "devDependencies": {
+  }
+}

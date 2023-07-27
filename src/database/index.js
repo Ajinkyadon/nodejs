@@ -2,7 +2,7 @@
 const mongoose = require('mongoose');
 
 // Connect to MongoDB
-mongoose.connect('mongodb+srv://ajinkyadon:ajinkyadon123@prft-node-session.jkagkbr.mongodb.net/node-ecom?retryWrites=true&w=majority', {
+mongoose.connect(process.env.mongodburl, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
 });

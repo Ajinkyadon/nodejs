@@ -29,44 +29,59 @@ const createCompanyAccount = async (req, res) => {
         res.status(500).json({ error: 'Failed to create a new company Account', message : error });    }
 };
 
-// Read all products
-const getAllProducts = async (req, res) => {
+// Read all company Account
+const getAllCompanyAccount = async (req, res) => {
     try {
-        const products = await Product.find();
-        res.json(products);
+        const companyAccount = await CompanyAccount.find();
+        res.json(companyAccount);
     } catch (error) {
-        res.status(500).json({ error: 'Failed to retrieve products' });
+        res.status(500).json({ error: 'Failed to retrieve company account' });
     }
 };
 
-// Update a product
-const updateProduct = async (req, res) => {
+// Update a company account
+const updateCompanyAccount = async (req, res) => {
     try {
-        const { name, price, description, category } = req.body;
-        const updatedProduct = await Product.findByIdAndUpdate(
-            req.params.productId,
-            { name, price, description, category },
+        const {name,registrationNumber, address, contactPerson } = req.body;
+        const updatedCompanyAccount = await CompanyAccount.findByIdAndUpdate(
+            req.params.id,
+            {
+                name : name,
+                registrationNumber :registrationNumber ,
+                address: {
+                    city : address.city,
+                    state : address.state,
+                    street: address.street,
+                    postalCode : address.postalCode,
+                    country : address.country,
+                },
+                contactPerson: {
+                    name : contactPerson.name,
+                    email : contactPerson.email,
+                    phone : contactPerson.phone,
+                }
+            },
             { new: true }
         );
-        res.json(updatedProduct);
+        res.json(updatedCompanyAccount);
     } catch (error) {
-        res.status(500).json({ error: 'Failed to update the product' });
+        res.status(500).json({ error: 'Failed to update the CompanyAccount', messsage : error });
     }
 };
 
-// Delete a product
-const deleteProduct = async (req, res) => {
+// Delete a companyAccount
+const deleteCompanyAccount = async (req, res) => {
     try {
-        const deletedProduct = await Product.findByIdAndDelete(req.params.productId);
-        res.json(deletedProduct);
+        const deletedCompanyAccount = await CompanyAccount.findByIdAndDelete(req.params.id);
+        res.json(deletedCompanyAccount);
     } catch (error) {
-        res.status(500).json({ error: 'Failed to delete the product' });
+        res.status(500).json({ error: 'Failed to delete the CompanyAccount' });
     }
 };
 
 module.exports = {
     createCompanyAccount,
-    getAllProducts,
-    updateProduct,
-    deleteProduct,
+    getAllCompanyAccount,
+    updateCompanyAccount,
+    deleteCompanyAccount,
 };

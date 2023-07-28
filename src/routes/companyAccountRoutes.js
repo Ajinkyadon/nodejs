@@ -1,18 +1,18 @@
-// routes/productRoutes.js
+// routes/companyAccountRoutes.js
 const express = require('express');
 const router = express.Router();
 const companyAccountController = require('../controllers/companyAccountController');
 
-// Create a new product
+// Create a new companyAccount
 router.post('/', companyAccountController.createCompanyAccount);
 
-// Read all products
-// router.get('/', productController.getAllProducts);
+//Read all companyAccount
+router.get('/', companyAccountController.getAllCompanyAccount);
 
-// // Update a product
-// router.put('/:productId', productController.updateProduct);
+// Update a companyAccount
+router.put('/:id', companyAccountController.updateCompanyAccount);
 
-// // Delete a product
-// router.delete('/:productId', productController.deleteProduct);
+// Delete a companyAccount
+router.delete('/:id', companyAccountController.deleteCompanyAccount);
 
 module.exports = router;
